@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <%= stylesheet_link_tag "portfolio.scss", media: "all" %>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Portfolio New</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="p_top"> 
+            <h1 id='title'>ChainedIn</h1>  
+        </div>
+        <div class="middle">
+            <div class="portfolio_field">
+                <h3>Portfolio Entry</h3>
+                <form action="/portfolio/create" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label for="jobTitle"> Job Title</label>
+                <input type="text" name="jobTitle">
+                <label for="job_description">Job Description</label>
+                <textarea name="description"id="textarea" cols="40" rows="5"></textarea>
+                <label for="time_at_job">Length of Employment</label>
+                <h6 id="subtext">Start</h6>
+                <input type="date" value="Start Date" name="startDate" style="text-align: center; width: 50%;">
+                <h6 id="subtext">End</h6>
+                <input type="date" value="End Date" name="endDate" style="text-align: center; width: 50%;">
+                <p></p>
+                <input type="submit" id="register_button">
+                <p></p>
+                <a href="/portfolio/index">Skip for now</a>
+            </div>
+            <% if flash[:errors] %>
+                <% flash[:errors].each do |i| %>
+                    <p><%= i %></p>
+                <% end %>
+            <% end %>
+            
+        </div>
+        <div class="p_bottom"></div>
+    </div>
+    
+</body>
+</html>

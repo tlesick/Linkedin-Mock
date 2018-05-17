@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Portfolio Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="main.js"></script>
+</head>
+<body>
+    <div class="wrapper adjust">
+        <div class="portfolio_index">
+                <h1 id='title'>ChainedIn</h1> 
+                
+                <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Requests</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <% @pending_requests.each do |a|%>
+                    <div>
+                    <h5 class="request_decoration"><%= a.first_name %> <%= a.last_name %></h5> 
+                    <form action="/connection/update/<%= a.id %>" method="POST">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" value="accept" name="decision">
+                    <input id="connect_btn" type="submit" value="Accept">
+                    </form>
+                    <form action='/connection/update/<%= a.id %>' method="POST">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                    <input type="hidden" value="reject" name="decision">
+                    <input  id="connect_btn" type="submit" value="Reject">
+                    </form>
+                    </div>
+                    <% end %>
+                </div>
+                    
+                </div>
+                <a id="navigation_buttons" href="/user/show">Account</a>
+                <a id="navigation_buttons" href="/portfolio/show">My Portfolio </a>
+                <a id="navigation_buttons"  href="/session/destroy">Logout</a>
+            </div>
+        <div class="middle adjust">
+            <h3 class="welcome_msg">Welcome <%= @user.first_name %></h3>
+            <div class="possible_connections">
+            <h3 id="Subtitle">Possible Connections</h3>
+            <% if @possible_connections %>
+                <% for i in @possible_connections %>
+                    <div class="user_instance">      
+                        <h4 class="information" id="name"><%= i.first_name%> <%= i.last_name%></h4>
+                        <h5 class="information" id="current_job"><%= i.JobTitle %> </h5>
+                        <p class="information" id="description"><%= i.description %></p>
+                        <h6 class="information" id="date">Start Date: <%= i.startDate %></h6>
+                        <h6 class="information" id="date">End Date: <%= i.endDate %></h6>
+                        <form action="/connection/create" method="POST">
+                        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+                        <input type="hidden" name="user_email" value="<%= i.email %>">
+                        <input type="submit"  value="Connect" class="connect_button">
+                        </form>
+                    </div>
+                    <% end%>
+                <% end %>
+                </div>
+            </div>
+            <div class="current_connections">
+            <h3> Current Connections </h3>
+                <% @current_connections.each do |a|%>
+                <div class="connected_user">
+                    <h4 class="connected_name"><a style="text-decoration: none;" href="/user/show/<%= a.peer_id %>"><%= a.first_name%> <%= a.last_name %></a></h4>
+                 </div>   
+                 <% end %>
+            </div>
+        </div>
+
+      
+    </div>
+</body>
+</html>

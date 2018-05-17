@@ -1,0 +1,199 @@
+.p_top{
+    text-align: left;
+    width: 100%;
+    height: 10%;
+    background: #293e4a;
+    padding-top: 10px;
+   position: static;
+}
+
+.portfolio_field {
+    width: 350px;
+    height: 95%;
+    display: inline-block;
+    background: #ffff;
+    border-radius: 5px;
+    
+}
+
+#subtext{
+    text-align: left;
+    padding-left: 100px;
+}
+
+#register_button{
+    width: 60%;
+}
+
+#textarea {
+    border-color: #dfdfdf;
+}
+
+.portfolio_index{
+    width: 100%;
+    height: 10%;
+    background: #293e4a;
+    padding-top: 10px;
+    
+}
+
+#title {
+    display: inline-block;
+    
+}
+
+#navigation_buttons {
+    position: relative;
+    left: 800px;
+    font-size: 1.5em;
+    color: #c9d1d9;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+.welcome_msg {
+    position: relative;
+    right: 500px;
+    display: inline-block;
+}
+
+
+.user_instance {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 200px;
+    width: 100%;
+
+    
+}
+
+
+#Subtitle{
+    position: relative;
+    text-align: center;
+}
+
+.information{
+    position: relative;
+    display: block;
+}
+#name{
+    text-align: left;
+    left: 10px;
+}
+#current_job{
+    text-align: left;
+    left: 30px;
+    word-wrap: hidden;
+    
+}
+#date {
+    text-align: right;
+    right: 15px;
+}
+
+.connect_button {
+    background-color: #0373b1;
+    color:  #ffffff;
+    width: 10%;
+    position: relative;
+    right: 30%;
+    border-radius: 5px;
+}
+.possible_connections{
+    width: 60%;
+  
+}
+
+.current_connections {
+    position: absolute;
+    border: 1px solid black;
+    display: inline-block;
+    bottom: 425px;
+    left: 950px;
+    border-radius: 5px;
+    width: 33%;
+    text-align: center;
+    border: 3px solid black;
+}
+
+.connected_user {
+    border: 1px solid black;
+    width: 80%;
+    height: 50px;
+    display: inline-block;
+}
+
+.connected_name {
+    text-align: left;
+    padding-left: 20px;
+    padding-top: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+//  ------------------_DROP DOWN BUTTON BELOW ------------------
+.dropbtn {
+    font-size: 1.5em;
+    color: #c9d1d9;
+    text-decoration: none;
+    padding-left: 10px;
+    left: 800px;
+    position: relative;
+    border: none;
+    background-color: #293e4a;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.request_decoration {
+    color: #0373b1;
+    text-align: center;
+    
+}
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #0373b1;
+
+}
+#connect_btn {
+    width: 60%;
+    border-radius: 5px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    text-align: center;
+    position: relative;
+    display: inline-block;
+}
+
+
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    border-radius: 5px;
+    left: 800px;
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

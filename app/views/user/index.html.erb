@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>ChainedIn</title>
+</head>
+<body>
+<div class='wrapper'>
+    <div class="top">
+        <h1 id='title'>Welcome to ChainedIn</h1>  
+    </div>
+    <div class="middle">    
+        <div class='register swap'>
+            <form action="/user/register" method="POST" id='register_form'>
+                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+                <label for="first_name">First name</label>
+                <input type="text" name="user[first_name]">
+                <label for="last_name">Last name</label>
+                <input type="text" name="user[last_name]">
+                <label for="email">Email</label>
+                <input type="email" name="user[email]">
+                <label for="password">Password (6 or more)</label>
+                <input type="password" name="user[password]">
+                <label for="password_confirmation">Confirm password</label>
+                <input type="password" name="user[password_confirmation]">
+                <p></p>
+                <input type="submit" value="Join Now" id="register_button">
+            </form>
+        </div>
+        <div class="login register">
+            <form action="/session/create" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                <label for="email">Email</label>
+                <input type="text" name="email">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+                <p></p>
+                <input type="submit" value="Sign in" id="register_button">
+            </form>
+            <p>Don't have an account? </p> <button class="incognito_button">Sign up</button>
+        </div>
+        <div class='swap'>
+            <h4>Already registered? <button class="incognito_button">Sign in!</button></h4>
+        </div>
+        <% if flash[:errors] %>
+            <% flash[:errors].each do |i| %>
+        <p><%= i %></p>
+        <% end %>
+        <% end %>
+
+    
+</div>
+
+
+</body>
+</html>

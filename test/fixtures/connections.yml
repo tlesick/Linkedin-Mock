@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  peer_id_id: 
+  peer_status: MyString
+  string: MyString
+
+two:
+  peer_id_id: 
+  peer_status: MyString
+  string: MyString
