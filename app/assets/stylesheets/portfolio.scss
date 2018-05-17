@@ -68,6 +68,7 @@
 }
 
 
+
 #Subtitle{
     position: relative;
     text-align: center;
@@ -83,7 +84,7 @@
 }
 #current_job{
     text-align: left;
-    left: 30px;
+    padding-left: 30px;
     word-wrap: hidden;
     
 }
@@ -98,21 +99,21 @@
     width: 10%;
     position: relative;
     right: 30%;
+    left: 30px;
     border-radius: 5px;
 }
 .possible_connections{
-    width: 60%;
-  
+    width: 100%;
+    display: block;
+    position: relative;
 }
 
+
 .current_connections {
-    position: absolute;
-    border: 1px solid black;
-    display: inline-block;
-    bottom: 425px;
-    left: 950px;
+    display: block;
+    
     border-radius: 5px;
-    width: 33%;
+    width: 100%;
     text-align: center;
     border: 3px solid black;
 }
@@ -131,8 +132,18 @@
     display: inline-block;
     text-align: center;
 }
-
-
+.left {
+    
+    width: 60%;
+    float: left;
+}
+.right {
+    top: 100px;
+    position: relative;
+    width: 30%;
+    
+    float: right;
+}
 
 //  ------------------_DROP DOWN BUTTON BELOW ------------------
 .dropbtn {

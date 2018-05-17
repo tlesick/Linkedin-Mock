@@ -2,8 +2,8 @@ class Portfolio < ActiveRecord::Base
   belongs_to :user
   
 
-  validates :description, :JobTitle, :startDate, :endDate, presence: true
-  validates :description, :JobTitle, length: {minimum: 6 }
+  validates :description, :JobTitle, :startDate, :endDate, presence: true, on: :create
+  validates :description, :JobTitle, length: {minimum: 6 }, on: :create
   validate :date_validation
 
   def date_validation      

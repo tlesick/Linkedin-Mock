@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
+
+</head>
     <div class="wrapper">
         <div class="top adjust">
         <h3 class="show_title"><%= @viewing_user.first_name%> <%= @viewing_user.last_name%></h3>
@@ -20,16 +21,56 @@
                 <h4><span class="text-dec">Last name:  </span>  <%= @viewing_user.last_name %></h4>
                 <h4><span class="text-dec">Email:</span>   <%= @viewing_user.email %></h4>
                 <h4><span class="text-dec">Member Since: </span> <%= @viewing_user.created_at %></h4>
+                <% if @this_is_current == false %>
+                <%# sending the id to be deleted %>
+                <form action="/connection/destroy/<%= @viewing_user.id %>" method="POST">
+                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+                <input type="hidden" name="connections[user_id]" value="<%= @viewing_user.user_id %>">
+                <input class="warning-btn" type="submit" value="Delete Connection">
+                </form>
+                <% end %>
+
+                <% if @this_is_current == true %>
+                    <%# this will be  a drop down button and the form will only update what was changed %>
+                    <div class="dropdown-content-2">
+                        <p>* Only Update the field(s) you want</p>
+                        <form action="/user/edit/<%= @current_user.id %>"   method="POST" class="edit_field">
+                            <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>" class="edit_field">
+                            <input type="text" name="first_name" placeholder="<%= @current_user.first_name %>" class="edit_field">
+                            <input type="text" name="last_name" placeholder="<%= @current_user.last_name %>" class="edit_field">
+                            <input type="email" name="email" placeholder="<%= @current_user.email %>" class="edit_field">
+                            <input type="password" name="password" class="edit_field" placeholder="Password">
+                            <input type="password" name="password_confirmation" class="edit_field" placeholder="Password Confirmation">
+                            <input type="submit" Value="Edit" class="edit_field">
+                        </form>                   
+                    </div>
+                <% end %>
                 </div>
             </div>
             <div class="portfolio_profile">
                     <h2 class="text-dec">Portfolio Information</h2>
                 <div class="inner_profile">
-                    <h4><span class="text-dec">>Job Title:</span>  <%= @viewing_user.JobTitle %></h4> 
-                    <h4><span class="text-dec">>Start Date:</span> <%= @viewing_user.startDate %></h4>
-                    <h4><span class="text-dec">>End Date:</span> <%= @viewing_user.endDate %></h4>
-                    <h4><span class="text-dec">>Description:</span> <%= @viewing_user.description %></h4>
+                    <h4><span class="text-dec">Job Title:</span>  <%= @viewing_user.JobTitle %></h4> 
+                    <h4><span class="text-dec">Start Date:</span> <%= @viewing_user.startDate %></h4>
+                    <h4><span class="text-dec">End Date:</span> <%= @viewing_user.endDate %></h4>
+                    <h4><span class="text-dec">Description:</span> <%= @viewing_user.description %></h4>
+                
+                <div class="portfolio_edit">
+                <% if @this_is_current == true %>
+                <%# maybe come back and add a drop down button %>
+                <% end%>
+                <% if  @this_is_current == true %>
+                    <form action="/portfolio/edit/<%= @current_user.id %>" method="POST">
+                        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>" class="edit_field">
+                        <input type="text" name="jobTitle" placeholder="<%= @viewing_user.JobTitle %>" class="edit_field">
+                        <input type="date" name="startDate" placeholder=" <%= @viewing_user.startDate %>" class="edit_field">
+                        <input type="date" name="endDate" placeholder=" <%= @viewing_user.endDate %>" class="edit_field">
+                        <input type="text" name="description" placeholder=" <%= @viewing_user.description %>" class="edit_field">
+                        <input type="submit" Value="Edit Profile" class="edit_field">
+                    </form>
+                <% end%>
                 </div>
+            </div>
             </div>
             
         </div>

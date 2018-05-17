@@ -116,7 +116,7 @@ input{
     height: 500px;
     width: 40%;
     border: 1px solid black;
-    display: inline-block;
+    display: block;
     border-radius: 5px;
 }
 
@@ -140,3 +140,32 @@ input{
 .text-dec {
     color: #0373b1
 }
+
+.warning-btn {
+   background-color: #b92727;
+   color: #ffffff;
+   width: 50%;
+   border-radius: 5px;
+   
+}
+
+.edit_field {
+    width: 60%;
+    display: block;
+    text-align: center;
+}
+
+.edit-btn{
+    display: block;
+    width: 50%;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #0373b1;
+}
+
+.portfolio_edit{
+    position: relative;
+    display: block;
+}
+
+
