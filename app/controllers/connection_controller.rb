@@ -13,8 +13,8 @@ class ConnectionController < ApplicationController
     end
 
     def destroy
-        connection_request = Connection.find(params[:id])
-        connection_request.destroy
+        connection_to_destroy = Connection.find(params[:id])
+        connection_to_destroy.destroy()
         redirect_to '/portfolio/index'
     end
 

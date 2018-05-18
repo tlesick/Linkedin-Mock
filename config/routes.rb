@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'scaffold_controller/Portfolio'
 
   # users
   root "user#index"

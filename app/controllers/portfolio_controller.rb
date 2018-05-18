@@ -7,7 +7,7 @@ class PortfolioController < ApplicationController
         @current_connections = User.joins('LEFT OUTER JOIN "connections" ON "connections"."peer_id" = "users"."id"').select("*").where(connections: {status: 'complete', user_id: @user.id})
     end
 
-    # User.joins('LEFT OUTER JOIN "connections" ON "connections"."user_id" = "users"."id"').select("*").where(connections: {status: 'pending'})
+    
     def create
         @new_portfolio = Portfolio.create(
             user_id: session[:user_id], 
@@ -24,4 +24,24 @@ class PortfolioController < ApplicationController
         end
     end
 
+    def edit
+        current_user = Portfolio.find_by(user_id: session[:user_id])
+        if params[:jobTitle].length != 0
+            current_user.JobTitle = params[:jobTitle]
+        end
+
+        if params[:description].length != 0
+            current_user.description = params[:description]
+        end
+
+        if params[:startDate].length != 0
+            current_user.startDate = params[:startDate]
+        end
+
+        if params[:endDate].length != 0
+            current_user.endDate = params[:endDate]
+        end
+        current_user.save()
+        redirect_to :back
+    end
 end
